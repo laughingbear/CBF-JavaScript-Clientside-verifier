@@ -1,6 +1,6 @@
 var dseeds = [];
 
-$.get("seeds.txt", function (data) {
+$.get("https://cryptobetfair.com/seeds.txt", function (data) {
     dseeds = data.split("\n");
     dseeds.shift();
 });
