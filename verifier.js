@@ -188,9 +188,9 @@ function checkbet(b) {
 
             if ((hi && res > target) || (!hi && res < target)) {
                 var t_target = hi ? 1000000 - target : target;
-                var part1 = bcdiv(1000000, t_target, 12);
+		var part1 = ((1000000 * 10e12) / (t_target * 10e12))/1e12;
                 var part2 = 1 - edge;
-                var win = bcmul(part1, part2, 12);
+                var win = ((part1 * 1e12) * (part2 * 1e12))/1e12;
                 var win = Math.round(win * 100000000) / 100000000;
             } else {
                 var win = "0.00000000";
