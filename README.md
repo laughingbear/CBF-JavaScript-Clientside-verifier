@@ -16,9 +16,14 @@ The usage of PHPJS, is done to maintain readability and comparability with the P
 * https://raw.githubusercontent.com/kvz/phpjs/master/functions/strings/bin2hex.js
 * https://raw.githubusercontent.com/kvz/phpjs/master/functions/strings/str_split.js
 * https://raw.githubusercontent.com/kvz/phpjs/master/functions/math/hexdec.js
-* https://raw.githubusercontent.com/kvz/phpjs/master/functions/bc/bcdiv.js
-* https://raw.githubusercontent.com/kvz/phpjs/master/functions/bc/bcsub.js
-* https://raw.githubusercontent.com/kvz/phpjs/master/functions/bc/bcmul.js
-* https://raw.githubusercontent.com/kvz/phpjs/master/functions/bc/bcdiv.js
-* https://raw.githubusercontent.com/kvz/phpjs/master/functions/_phpjs_shared/_phpjs_shared_bc.js
+
+#Usage:
+
+If you are on Chrome install tempermonkey. on firefox install greasemonkey. 
+
+Create a new userscript and paste the contents of userscript.js, press save. and you are done.
+
+#verif.js 
+Verif.js is a JS file for external usage, containing only the verifier function based on the betdata.
+
 
