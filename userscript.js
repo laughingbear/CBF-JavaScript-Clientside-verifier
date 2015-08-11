@@ -4,7 +4,6 @@
 // @description Clientside JS Verifier - Cryptobetfair.com
 // @include     https://cryptobetfair.com/coindrop.html*
 // @include     https://cryptobetfair.com/dice.html*
-// @include     https://cryptobetfair.com/lounge.html*
 // @include		https://cryptobetfair.com/wheel.html*
 // @version     1
 // @grant     	none
