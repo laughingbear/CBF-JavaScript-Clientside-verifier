@@ -18,6 +18,8 @@
 // @require   https://raw.githubusercontent.com/kvz/phpjs/master/functions/math/hexdec.js
 
 // ==/UserScript==
+console.log("Userscript loaded");
+
 layer();
 var dseeds = [];
 $.get("seeds.txt", function (data) {
@@ -81,11 +83,11 @@ $(document).ajaxSuccess(
 function togglemonitor() {
     if (monitoring !== 'on') {
         monitoring = 'on';
-        document.getElementById("monstat").innerHTML = '<a href="#" class="green bold"><i class="fa fa-circle"> <span class="force-font bold">Monitoring: <span>ON</span></span></i> </a>';
+        document.getElementById("monstat").innerHTML = '<a href="#" class="green "><i class="fa fa-circle"> <span class="force-font bold">Monitoring: <span>On</span></span></i> </a>';
     }
     else {
         monitoring = 'off';
-        document.getElementById("monstat").innerHTML = '<a href="#" class="red bold"><i class="fa fa-circle"> <span class="force-font bold">Monitoring: <span>OFF</span></span></i> </a>';
+        document.getElementById("monstat").innerHTML = '<a href="#" class=" "><i class="fa fa-circle"> <span class="force-font bold">Monitoring: <span>Off</span></span></i> </a>';
 
     }
 }
@@ -108,7 +110,7 @@ function checkbetbyid(betid) {
             if (data.bet != null) {
                 var b = data.bet;
                 var res = check2(b);
-                if (res == 'true') {
+                if (res == '1' || res == '2') {
                     var mytext = betid + " v";
                     console.log(mytext);
                     display2(betid, 1);
@@ -130,10 +132,10 @@ function checkbetbyid2(betid) {
                 var b = data.bet;
 
                 if (b.shash == seedstore[b.betctr].shash) {
-                    document.getElementById("seedsstat").innerHTML = '<a href="#" class="green bold"><i class="fa fa-circle"> <span class="force-font bold">Clientseedmatch:<span>Pass</span></span></i> </a>';
+                    document.getElementById("seedsstat").innerHTML = '<a href="#" class="green bold"><i class="fa fa-circle"> <span class="force-font bold">Seedmatch:<span>pass</span></span></i> </a>';
                 } else {
                     console.log(seedstore[b.betctr].shash + " || " + b.shash + "\n" + b.betctr);
-                    document.getElementById("seedsstat").innerHTML = '<a href="#" class="bold red"><i class="fa fa-circle"> <span class="force-font bold">Clientseedmatch:<span>FAIL</span></span></i> </a>';
+                    document.getElementById("seedsstat").innerHTML = '<a href="#" class="bold red"><i class="fa fa-circle"> <span class="force-font bold">Seedmatch:<span>fail</span></span></i> </a>';
                 }
                 var res = check2(b);
                 if (res == '2' || res == '1') {
@@ -523,7 +525,7 @@ function check(hashchain) {
 function layer() {
     var newHTML = document.createElement('div');
     newHTML.className = "stats-nav";
-    newHTML.innerHTML = '<div class="container"><div class="navbar-xs"><ul class="nav navbar-nav pull-left"><li><a>CryptoBetFair Validator</a></li><li><a ><i class="fa fa-ticket"></i> Validated Bets : <span id="valbetcount" >0</span></a></li></ul><ul class="nav navbar-nav pull-right"><li id="verifymybets"><a href="#" > Validate MyBets </a></li><li id="monstat"><a href="#" class="green red"><i class="fa fa-circle"> <span class="force-font bold">Monitoring: <span>OFF</span></span></i> </a></li><li id="hashstat"><a href="#" class="green red"><i class="fa fa-circle"> <span class="force-font bold">HashChain: <span>?</span></span></i> </a></li><li id="seedsstat"><a href="#" class="green red"><i class="fa fa-circle"> <span class="force-font bold">Seedmatch:<span>?</span></span></i> </a></li></ul></div></div>';
+    newHTML.innerHTML = '<div class="container"><div class="navbar-xs"><ul class="nav navbar-nav pull-left"><li><a>CryptoBetFair Validator</a></li><li><a ><i class="fa fa-ticket"></i> Validated Bets : <span id="valbetcount" >0</span></a></li></ul><ul class="nav navbar-nav pull-right"><li id="verifymybets"><a href="#" > Validate MyBets </a></li><li id="monstat"><a href="#" class=""><i class="fa fa-circle"> <span class="force-font bold">Monitoring: <span>OFF</span></span></i> </a></li><li id="hashstat"><a href="#" class="green red"><i class="fa fa-circle"> <span class="force-font bold">HashChain: <span>?</span></span></i> </a></li><li id="seedsstat"><a href="#" class=""><i class="fa fa-circle"> <span class="force-font bold">Seedmatch:<span>?</span></span></i> </a></li></ul></div></div>';
     document.body.insertBefore(newHTML, document.body.firstChild)
     $('#monstat').click(function () {
         togglemonitor();
@@ -552,4 +554,3 @@ function hex2a(hexx) {
         str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
     return str;
 }
-console.log("Userscript loaded");
