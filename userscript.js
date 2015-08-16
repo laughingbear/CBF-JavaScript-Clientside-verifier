@@ -39,6 +39,13 @@ $(document).ajaxSuccess(
         function (event, xhr, settings) {
             var url = settings.url;
             if (url.indexOf('d/u/bet.php') > -1 || url.indexOf('d/i/fair.php') > -1 || url.indexOf('d/u/rekey.php') > -1) {
+                if (url.indexOf('rekey.php') > -1){
+                    $.get("seeds.txt", function (data) {
+                        dseeds = data.split("\n");
+                        dseeds.shift();
+                        console.log("Seeds Reloaded");
+                    });
+                }
                 var json = JSON.parse(xhr.responseText);
                 var d = json.fair;
                 seedstore[d.betctr] = {
