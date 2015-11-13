@@ -1,5 +1,5 @@
 var dseeds = [];
-//Laugingbear, don't act like a kid.
+//Verify function only.
 $.get("https://cryptobetfair.com/seeds.txt", function (data) {
     dseeds = data.split("\n");
     dseeds.shift();
